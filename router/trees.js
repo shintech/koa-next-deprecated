@@ -6,7 +6,7 @@ module.exports = {
 
     ctx.status = 200
     ctx.body = {
-      value: 1,
+      value: 0,
       message: 'ok'
     }
   }

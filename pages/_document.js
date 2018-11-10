@@ -12,7 +12,7 @@ export default class MyDocument extends Document {
             @import 'https://use.fontawesome.com/releases/v5.2.0/css/all.css';
 
             body {
-              background-color: #ceefe8;
+              background-color: darkslategray;
             }
           `}</style>
         </Head>

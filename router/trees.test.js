@@ -28,6 +28,6 @@ describe('SERVER -> GET /api/trees -> fetch()...', () => {
   })
 
   it('expect ctx.body.value to equal "1"...', async () => {
-    expect(ctx.body.value).toEqual(1)
+    expect(ctx.body.value).toEqual(0)
   })
 })

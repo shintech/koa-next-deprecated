@@ -12,8 +12,9 @@ const Home = ({ title, trees, increment, decrement }) =>
     <style jsx>{`
       h1 {
         font-family: 'Rouge Script', cursive;
+        text-shadow: 0.08ch 0.08ch red;
         font-size: 16ch;
-        color: salmon;
+        color: orange;
         margin: 0ch;
       }
     `}</style>
