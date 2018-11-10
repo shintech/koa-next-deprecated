@@ -1,33 +1,51 @@
-const Koa = require('koa')
 const nextjs = require('next')
 const Router = require('koa-router')
+const pkg = require('./package.json')
+const api = require('./router')
 
-const environment = process.env['NODE_ENV']
-const port = parseInt(process.env['PORT'])
+const config = {
+  environment: process.env['NODE_ENV'] || 'development',
+  port: parseInt(process.env['PORT']) || 8000,
+  host: process.env['HOST'] || 'localhost'
+}
 
-const dev = environment === 'development'
-const app = nextjs({ dev })
+const app = nextjs({ dev: config.environment === 'development' })
 const handle = app.getRequestHandler()
 
 app.prepare()
   .then(() => {
-    const server = new Koa()
+    const { port, host } = config
+
+    const logger = require('shintech-logger')(config)
+    const server = require('shintech-koa')({ ...config, logger })
+
+    server.use(api.routes())
+    server.use(api.allowedMethods())
+
     const router = new Router()
 
     router.get('*', async ctx => {
       await handle(ctx.req, ctx.res)
-
       ctx.respond = false
     })
 
-    server.use(async (ctx, next) => {
-      ctx.res.statusCode = 200
-
-      await next()
-    })
-
     server.use(router.routes())
-    server.listen(port, () => {
-      console.log(`listening on port ${port}...`)
+    server.use(router.allowedMethods())
+
+    server.use(ctx => {
+      ctx.body = {
+        status: 'error'
+      }
+
+      ctx.status = 404
     })
+
+    server.listen(port, host)
+      .on('listening', () => {
+        logger.info(`${pkg.name} - version: ${pkg.version} - listening at ${host}:${port}...`)
+      })
+
+      .on('error', err => {
+        logger.error(err.message)
+      })
   })

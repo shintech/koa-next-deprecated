@@ -1,4 +1,9 @@
 {
-  "watch": ["server", "index.js"],
-  "ext": "js,json"
+  "ext": "js,json",
+  "watch": [
+    "server",
+    "router",
+    "shintech*",
+    "index.js"
+  ]
 }
