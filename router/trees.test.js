@@ -2,8 +2,6 @@
 
 import request from 'supertest'
 
-console.info = jest.fn()
-
 describe('SERVER -> GET /api/posts -> api.fetchAll()..', () => {
   let ctx, app
 
