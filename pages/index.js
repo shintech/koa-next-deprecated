@@ -1,16 +1,17 @@
 import { connect } from 'react-redux'
 import { increment } from '../redux/actions/trees'
+import Clicker from '../components/Clicker'
 
 const Home = ({ title, trees, increment }) =>
   <div>
     <h1>{title}</h1>
-    <p>Number -> {trees.value}</p>
-    <button onClick={() => { increment(1) }}>Click Me!</button>
+
+    <Clicker trees={trees} onClick={increment} />
 
     <style jsx>{`
       h1 {
         font-family: 'Rouge Script', cursive;
-        font-size: 45px;
+        font-size: 10ch;
         color: salmon;
       }
     `}</style>
