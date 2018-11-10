@@ -19,7 +19,7 @@ describe('REDUX -> REDUCER - /trees -> INCREMENT_TREES...', () => {
 
   const results = reducer(state, action)
 
-  it('expect result to equal action.payload...', () => {
-    expect(results['value']).toEqual(1)
+  it(`expect results.value to equal "${action.payload}"...`, () => {
+    expect(results.value).toEqual(action.payload)
   })
 })

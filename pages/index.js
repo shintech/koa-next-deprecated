@@ -1,5 +1,6 @@
 import { connect } from 'react-redux'
-import { increment } from '../redux/actions/trees'
+import actions from '../redux/actions/trees'
+import api from '../api/trees'
 import Clicker from '../components/Clicker'
 
 const Home = ({ title, trees, increment }) =>
@@ -17,8 +18,17 @@ const Home = ({ title, trees, increment }) =>
     `}</style>
   </div>
 
-Home.getInitialProps = () => {
+Home.getInitialProps = async ({ store }) => {
   const title = 'Hello World!'
+
+  try {
+    let json = await api.fetchTrees()
+
+    store.dispatch(actions.fetchValue(json.value))
+  } catch (err) {
+    console.error(err.message)
+  }
+
   return { title }
 }
 
@@ -29,7 +39,7 @@ function mapStateToProps (state) {
 function mapDispatchToProps (dispatch) {
   return {
     increment: (value) => {
-      dispatch(increment(value))
+      dispatch(actions.increment(value))
     }
   }
 }

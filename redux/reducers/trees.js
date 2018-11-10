@@ -11,6 +11,9 @@ const trees = (state = initialState, action) => {
 
       return { ...state, value }
 
+    case C.FETCH_VALUE:
+      return { ...state, value: action.payload }
+
     default:
       return state
   }

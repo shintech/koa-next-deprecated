@@ -1,0 +1,14 @@
+version: '3'
+
+services: 
+  koa-next:
+    build: .
+    container_name: koa-next
+    volumes: 
+      - ./data/log/koa-next:/shintech/log
+    env_file:
+      - ./config/env/koa-next.env
+    ports:
+      - "8000:8000"
+    restart: always
+  

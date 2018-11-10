@@ -1,15 +1,15 @@
 /* eslint-env jest */
 
 import { initStore } from '../'
-import { increment } from './trees'
+import actions from './trees'
 
 const store = initStore({}, {
   isServer: true
 })
 
-describe('REDUX -> ACTION - /trees -> fetchPosts()...', () => {
+describe('REDUX -> ACTION - /trees -> increment()...', () => {
   beforeAll(() => {
-    store.dispatch(increment(1))
+    store.dispatch(actions.increment(1))
   })
 
   it('expect trees to have property "value"...', () => {

@@ -2,7 +2,7 @@
 
 import request from 'supertest'
 
-describe('SERVER -> GET /api/posts -> api.fetchAll()..', () => {
+describe('SERVER -> GET /api/trees -> fetch()...', () => {
   let ctx, app
 
   beforeAll(async () => {
@@ -21,5 +21,13 @@ describe('SERVER -> GET /api/posts -> api.fetchAll()..', () => {
 
   it('expect ctx.body.message to be "ok"...', async () => {
     expect(ctx.body.message).toBe('ok')
+  })
+
+  it('expect ctx.body to have property "value"...', async () => {
+    expect(ctx.body).toHaveProperty('value')
+  })
+
+  it('expect ctx.body.value to equal "1"...', async () => {
+    expect(ctx.body.value).toEqual(1)
   })
 })

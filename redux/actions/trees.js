@@ -1,8 +1,17 @@
 import C from '../constants'
 
-export function increment (value) {
-  return {
-    type: C.INCREMENT_TREES,
-    payload: value
+export default {
+  increment: function (value) {
+    return {
+      type: C.INCREMENT_TREES,
+      payload: value
+    }
+  },
+
+  fetchValue: function (value) {
+    return {
+      type: C.FETCH_VALUE,
+      payload: value
+    }
   }
 }
