@@ -20,3 +20,17 @@ describe('REDUX -> ACTION - /trees -> increment()...', () => {
     expect(store.getState().trees.value).toEqual(1)
   })
 })
+
+describe('REDUX -> ACTION - /trees -> decrement()...', () => {
+  beforeAll(() => {
+    store.dispatch(actions.decrement(1))
+  })
+
+  it('expect trees to have property "value"...', () => {
+    expect(store.getState().trees).toHaveProperty('value')
+  })
+
+  it('expect trees.value to equal "1"...', () => {
+    expect(store.getState().trees.value).toEqual(0)
+  })
+})

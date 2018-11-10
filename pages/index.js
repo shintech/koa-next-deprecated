@@ -3,17 +3,18 @@ import actions from '../redux/actions/trees'
 import api from '../api/trees'
 import Clicker from '../components/Clicker'
 
-const Home = ({ title, trees, increment }) =>
+const Home = ({ title, trees, increment, decrement }) =>
   <div>
     <h1>{title}</h1>
 
-    <Clicker trees={trees} onClick={increment} />
+    <Clicker trees={trees} increment={increment} decrement={decrement} />
 
     <style jsx>{`
       h1 {
         font-family: 'Rouge Script', cursive;
-        font-size: 10ch;
+        font-size: 16ch;
         color: salmon;
+        margin: 0ch;
       }
     `}</style>
   </div>
@@ -40,6 +41,9 @@ function mapDispatchToProps (dispatch) {
   return {
     increment: (value) => {
       dispatch(actions.increment(value))
+    },
+    decrement: (value) => {
+      dispatch(actions.decrement(value))
     }
   }
 }

@@ -6,7 +6,7 @@ import C from '../constants'
 
 describe('REDUX -> REDUCER - /trees -> INCREMENT_TREES...', () => {
   const state = {
-    value: 0
+    value: 1
   }
 
   const action = {
@@ -19,7 +19,27 @@ describe('REDUX -> REDUCER - /trees -> INCREMENT_TREES...', () => {
 
   const results = reducer(state, action)
 
-  it(`expect results.value to equal "${action.payload}"...`, () => {
-    expect(results.value).toEqual(action.payload)
+  it(`expect results.value to equal "2"...`, () => {
+    expect(results.value).toEqual(2)
+  })
+})
+
+describe('REDUX -> REDUCER - /trees -> DECREMENT_TREES...', () => {
+  const state = {
+    value: 1
+  }
+
+  const action = {
+    type: C.DECREMENT_TREES,
+    payload: 1
+  }
+
+  deepFreeze(action)
+  deepFreeze(state)
+
+  const results = reducer(state, action)
+
+  it(`expect results.value to equal "0"...`, () => {
+    expect(results.value).toEqual(0)
   })
 })
