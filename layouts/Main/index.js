@@ -24,7 +24,7 @@ const Main = ({ children, title = 'Hello World!' }) =>
       grid-template-columns: 100%;
 
       main {
-        min-height: 95vh;
+        min-height: 94vh;
         grid-row: 1;
         display: flex;
         flex-direction: column;
