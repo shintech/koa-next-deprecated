@@ -2,9 +2,10 @@ import { connect } from 'react-redux'
 import actions from '../redux/actions/trees'
 import api from '../api/trees'
 import Clicker from '../components/Clicker'
+import Main from '../layouts/Main'
 
 const Home = ({ title, trees, increment, decrement }) =>
-  <div>
+  <Main>
     <h1>{title}</h1>
 
     <Clicker trees={trees} increment={increment} decrement={decrement} />
@@ -15,10 +16,10 @@ const Home = ({ title, trees, increment, decrement }) =>
         font-size: 16ch;
         color: orange;
         text-shadow: 0.08ch 0.08ch red;
-        margin: 2.25ch 0 0 0;
+        margin: 0;
       }
     `}</style>
-  </div>
+  </Main>
 
 Home.getInitialProps = async ({ store }) => {
   const title = 'Hello World!'

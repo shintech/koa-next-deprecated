@@ -19,6 +19,7 @@ const Clicker = ({ trees, increment = () => {}, decrement = () => {} }) => {
           font-size: 6ch;
           margin: 0.75ch;
           white-space: nowrap;
+          text-align: center;          
         }
 
         .positive {
