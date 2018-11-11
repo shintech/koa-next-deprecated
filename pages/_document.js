@@ -13,6 +13,7 @@ export default class MyDocument extends Document {
 
             body {
               background-color: darkslategray;
+              text-align: center;
             }
           `}</style>
         </Head>

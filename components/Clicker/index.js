@@ -18,8 +18,9 @@ const Clicker = ({ trees, increment = () => {}, decrement = () => {} }) => {
           color: violet;
           font-size: 6ch;
           margin: 0.75ch;
+          white-space: nowrap;
         }
-  
+
         .positive {
           color: palegreen;
         }
@@ -31,11 +32,11 @@ const Clicker = ({ trees, increment = () => {}, decrement = () => {} }) => {
         .zero {
           color: deepskyblue;
         }
-  
+
         button {
           border-radius: 2ch;
           height: 10ch;
-          width: 25ch;
+          width: 23ch;
           font-size: 2.5ch;
           margin: 0.25ch;
           border: 0.1ch solid white;
