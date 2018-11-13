@@ -1,16 +1,13 @@
-const Title = ({ title }) => 
-  <div>
-    <h1>{ title }</h1>
+import PropTypes from 'prop-types'
+import Wrapper from './wrapper'
 
-    <style jsx>{`
-      h1 {
-        font-family: 'Rouge Script', cursive;
-        font-size: 16ch;
-        color: orange;
-        text-shadow: 0.08ch 0.08ch red;
-        margin: 0;
-      }
-    `}</style>
-  </div>
+const Title = ({ title }) =>
+  <Wrapper>
+    <h1>{ title }</h1>
+  </Wrapper>
+
+Title.propTypes = {
+  title: PropTypes.string.isRequired
+}
 
 export default Title

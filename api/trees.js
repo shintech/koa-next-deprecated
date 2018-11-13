@@ -1,7 +1,7 @@
 import fetch from 'isomorphic-fetch'
 
 export default {
-  fetchTrees: function fetchTrees () {
+  fetch: function () {
     const options = {
       method: 'GET',
       headers: {

@@ -1,8 +1,5 @@
 {
-  "ext": "js,json",
-  "watch": [
-    "server",
-    "router",
-    "index.js"
-  ]
+  "watch": ["server", "index.js"],
+  "ignore": [],
+  "ext": "js,json"
 }

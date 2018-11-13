@@ -1,3 +1,5 @@
+/*  /pages/_app.js
+*/
 import App, { Container } from 'next/app'
 import { Provider } from 'react-redux'
 import { reduxPage } from '../redux'

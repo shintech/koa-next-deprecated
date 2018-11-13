@@ -16,7 +16,7 @@ const clientLogger = store => next => action => {
 }
 
 const serverLogger = store => next => action => {
-  console.info('redux:', `dispatching server action ${action.type}...`)
+  console.info('\x1b[35m%s\x1b[0m', 'redux\x1b[0m:', `dispatching server action ${action.type}...`)
   return next(action)
 }
 

@@ -1,9 +1,10 @@
+
 /* eslint-env jest */
 
-const React = require('react')
-const { configure } = require('enzyme')
-const Adapter = require('enzyme-adapter-react-16')
-const router = require('../../router')
+import React from 'react'
+import { configure } from 'enzyme'
+import Adapter from 'enzyme-adapter-react-16'
+import router from '../../server/router'
 
 console.log = jest.fn()
 console.info = jest.fn()
@@ -14,7 +15,7 @@ const config = {
 
 configure({ adapter: new Adapter() })
 
-const server = require('shintech-koa')(config)
+const server = require('../../server')(config)
 
 server.use(router.routes())
 server.use(router.allowedMethods())
@@ -22,3 +23,8 @@ server.use(router.allowedMethods())
 global._server = server
 
 global.React = React
+
+global._treesMock = {
+  value: 0,
+  message: 'ok'
+}

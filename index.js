@@ -1,7 +1,7 @@
 const nextjs = require('next')
 const Router = require('koa-router')
 const pkg = require('./package.json')
-const api = require('./router')
+const api = require('./server/router')
 
 const config = {
   environment: process.env['NODE_ENV'] || 'development',
